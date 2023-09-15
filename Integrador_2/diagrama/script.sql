@@ -47,10 +47,13 @@ ENGINE = InnoDB;
 -- Table `integrador_2`.`Carrera_inscripta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `integrador_2`.`Carrera_inscripta` (
+`id` INT NOT NULL AUTO_INCREMENT,
   `antiguedad` INT NOT NULL,
   `graduado` TINYINT NOT NULL,
+  `anio_graduado` DATE NOT NULL,
   `Alumno_idAlumno` INT NOT NULL,
   `Carrera_idCarrera` INT NOT NULL,
+   PRIMARY KEY (`id`),
   INDEX `fk_Carrera_inscripta_Alumno_idx` (`Alumno_idAlumno` ASC),
   INDEX `fk_Carrera_inscripta_Carrera1_idx` (`Carrera_idCarrera` ASC),
   CONSTRAINT `fk_Carrera_inscripta_Alumno`
