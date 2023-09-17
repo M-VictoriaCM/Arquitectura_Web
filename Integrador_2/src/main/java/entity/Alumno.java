@@ -1,37 +1,44 @@
 package entity;
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
 public class Alumno {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(nullable = false)
     private String nombre;
+
     @Column(nullable = false)
     private String apellido;
+
     @Column(nullable = false)
     private int edad;
+
     @Column(nullable = false)
     private char genero;
+
     @Column(nullable = false)
     private int dni;
+
     @Column(nullable = false)
     private String residencia;
+
     @Column(nullable = false)
     private int num_libreta_un;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "carreras_inscriptas")
-    private Carrera carreras_inscriptas;
+    @OneToMany(mappedBy="alumno", fetch = FetchType.LAZY)
+    private List<Carrera_inscripta> carreras_inscriptas;
+
 
     public Alumno() {
         super();
     }
 
-    public Alumno(int id, String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un, Carrera carreras_inscriptas) {
+    public Alumno(int id, String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un, List<Carrera_inscripta> carreras_inscriptas) {
         super();
         this.id = id;
         this.nombre = nombre;
@@ -48,7 +55,7 @@ public class Alumno {
         return id;
     }
 
-    public Carrera getCarreras_inscriptas() {
+    public List<Carrera_inscripta> getCarreras_inscriptas() {
         return carreras_inscriptas;
     }
 

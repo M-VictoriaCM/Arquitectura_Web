@@ -7,18 +7,18 @@ import javax.persistence.Persistence;
     public class RepositoryFactory {
         public static final String DERBY = "Derby";
         public static final String MYSQL = "MySQL";
-        private static repository.RepositoryFactory instance = null;
+        private static RepositoryFactory instance = null;
         private static EntityManagerFactory entity_manager_factory;
         private static EntityManager entity_manager;
 
         private RepositoryFactory() {
         }
 
-        public static repository.RepositoryFactory getInstance(String unidad_persistencia) {
+        public static RepositoryFactory getInstance(String unidad_persistencia) {
             if (instance == null) {
                 entity_manager_factory = Persistence.createEntityManagerFactory(unidad_persistencia);
                 entity_manager = entity_manager_factory.createEntityManager();
-                instance = new repository.RepositoryFactory();
+                instance = new RepositoryFactory();
                 return instance;
             }
             return instance;
@@ -33,8 +33,8 @@ import javax.persistence.Persistence;
         }
 
         public static void cerrar_conexion() {
-            repository.RepositoryFactory.getEntity_manager().close();
-            repository.RepositoryFactory.getEntity_manager_factory().close();
+            RepositoryFactory.getEntity_manager().close();
+            RepositoryFactory.getEntity_manager_factory().close();
         }
     /*
         public static AlumnoRepositoryImpl get_repositorio_alumno() {

@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Carrera {
@@ -11,14 +12,14 @@ public class Carrera {
     @Column(nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy = "carrera_inscripta", fetch = FetchType.LAZY)
-    private Carrera_inscripta carrera_inscripta;
+    @OneToMany(mappedBy = "carrera", fetch = FetchType.LAZY)
+    private List<Carrera_inscripta> carrera_inscripta;
 
     public Carrera() {
         super();
     }
 
-    public Carrera(int id, String nombre, Carrera_inscripta carrera_inscripta) {
+    public Carrera(int id, String nombre, List<Carrera_inscripta> carrera_inscripta) {
         super();
         this.id = id;
         this.nombre = nombre;
@@ -37,7 +38,7 @@ public class Carrera {
         this.nombre = nombre;
     }
 
-    public Carrera_inscripta getCarrera_inscripta() {
+    public List<Carrera_inscripta> getCarrera_inscripta() {
         return carrera_inscripta;
     }
 

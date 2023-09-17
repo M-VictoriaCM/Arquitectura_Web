@@ -1,22 +1,23 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Carrera_inscripta {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(nullable = false)
     private int antiguedad;
+
     @Column(nullable = false)
     private boolean graduado;
 
     @ManyToOne
     @JoinColumn(name = "Carrera_idCarrera")
-    private List<Carrera> carreras;
+    private Carrera carrera;
 
     @ManyToOne
     @JoinColumn(name = "Alumno_idAlumno")
@@ -26,12 +27,17 @@ public class Carrera_inscripta {
         super();
     }
 
-    public Carrera_inscripta(int antiguedad, boolean graduado, List<Carrera> carreras, Alumno alumno) {
+    public Carrera_inscripta(int id, int antiguedad, boolean graduado, Carrera carrera, Alumno alumno) {
         super();
+        this.id =id;
         this.antiguedad = antiguedad;
         this.graduado = graduado;
-        this.carreras = carreras;
+        this.carrera = carrera;
         this.alumno = alumno;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getAntiguedad() {
@@ -50,13 +56,8 @@ public class Carrera_inscripta {
         this.graduado = graduado;
     }
 
-    public void addCarrera(Carrera c){
-        if (!carreras.contains(c)){
-            carreras.add(c);
-        }
-    }
-    public List<Carrera> getCarrera() {
-        return carreras;
+    public Carrera getCarrera() {
+        return carrera;
     }
 
     public Alumno getAlumno() {
@@ -68,6 +69,8 @@ public class Carrera_inscripta {
         return "Carrera_inscripta{" +
                 "antiguedad=" + antiguedad +
                 ", graduado=" + graduado +
+                ", carrera=" + carrera +
+                ", alumno=" + alumno +
                 '}';
     }
 }
