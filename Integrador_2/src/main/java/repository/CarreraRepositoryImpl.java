@@ -31,4 +31,5 @@ public class CarreraRepositoryImpl implements CarreraRepository {
     public void delete(Carrera carrera) {
         RepositoryFactory.getEntity_manager().remove(carrera);
     }
+
 }

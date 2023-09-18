@@ -27,4 +27,9 @@ public class AlumnoRepositoryImpl implements AlumnoRepository {
         RepositoryFactory.cerrar_conexion();
         return alumno;
     }
+
+    @Override
+    public void delete(Alumno alumno) {
+        RepositoryFactory.getEntity_manager().remove(alumno);
+    }
 }
