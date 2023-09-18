@@ -33,7 +33,7 @@ public class CarreraInscriptaRepositoryImpl implements CarreraInscriptaRepositor
 
     @Override
     public List<Carrera_inscripta> findAll() {
-        return RepositoryFactory.getEntity_manager().createQuery("SELECT c FROM Carrera_inscripta", Carrera_inscripta.class)
+        return RepositoryFactory.getEntity_manager().createQuery("SELECT c FROM Carrera_inscripta c", Carrera_inscripta.class)
                 .getResultList();
     }
 }
