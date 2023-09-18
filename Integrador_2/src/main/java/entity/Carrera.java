@@ -8,7 +8,11 @@ public class Carrera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
     @Column(name = "idCarrera")
+=======
+    @Column(name="idCarrera")
+>>>>>>> 8f8589fc80c8c448015d5eb2258d1bf7c34a5e93
     private int id;
     @Column(nullable = false)
     private String nombre;
