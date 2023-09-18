@@ -3,6 +3,8 @@ package repository;
 
 import entity.Alumno;
 
+import java.util.List;
+
 public class AlumnoRepositoryImpl implements AlumnoRepository {
     public static AlumnoRepositoryImpl instance = new AlumnoRepositoryImpl();
 
@@ -31,5 +33,16 @@ public class AlumnoRepositoryImpl implements AlumnoRepository {
     @Override
     public void delete(Alumno alumno) {
         RepositoryFactory.getEntity_manager().remove(alumno);
+    }
+
+    @Override
+    public Alumno findById(Integer id) {
+        return RepositoryFactory.getEntity_manager().find(Alumno.class, id);
+    }
+
+    @Override
+    public List<Alumno> findAll() {
+        return RepositoryFactory.getEntity_manager().createQuery("SELECT a FROM Alumno a", Alumno.class)
+                .getResultList();
     }
 }

@@ -1,6 +1,9 @@
 package repository;
 
+import entity.Alumno;
 import entity.Carrera;
+
+import java.util.List;
 
 public class CarreraRepositoryImpl implements CarreraRepository {
     public static CarreraRepositoryImpl instance = new CarreraRepositoryImpl();
@@ -30,6 +33,17 @@ public class CarreraRepositoryImpl implements CarreraRepository {
     @Override
     public void delete(Carrera carrera) {
         RepositoryFactory.getEntity_manager().remove(carrera);
+    }
+
+    @Override
+    public Carrera findById(Integer id) {
+        return RepositoryFactory.getEntity_manager().find(Carrera.class, id);
+    }
+
+    @Override
+    public List<Carrera> findAll() {
+        return RepositoryFactory.getEntity_manager().createQuery("SELECT c FROM Carrera c", Carrera.class)
+                .getResultList();
     }
 
 }
