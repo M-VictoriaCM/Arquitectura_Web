@@ -5,9 +5,9 @@
 
     <persistence-unit name="MySQL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>entity.Alumno</class>
-        <class>entity.Carrera</class>
-        <class>entity.Carrera_inscripta</class>
+        <class>Integrador_2.entity.Alumno</class>
+        <class>Integrador_2.entity.Carrera</class>
+        <class>Integrador_2.entity.Carrera_inscripta</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
@@ -23,9 +23,9 @@
     </persistence-unit>
     <persistence-unit name="Derby">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>entity.Alumno</class>
-        <class>entity.Carrera</class>
-        <class>entity.Carrera_inscripta</class>
+        <class>Integrador_2.entity.Alumno</class>
+        <class>Integrador_2.entity.Carrera</class>
+        <class>Integrador_2.entity.Carrera_inscripta</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />

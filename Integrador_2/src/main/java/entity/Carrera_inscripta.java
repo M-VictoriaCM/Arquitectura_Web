@@ -1,7 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 public class Carrera_inscripta {

@@ -1,8 +1,9 @@
 package repository;
 
+
 import entity.Alumno;
 
-public class AlumnoRepositoryImpl implements AlumnoRepository{
+public class AlumnoRepositoryImpl implements AlumnoRepository {
     public static AlumnoRepositoryImpl instance = new AlumnoRepositoryImpl();
 
     public AlumnoRepositoryImpl() {
