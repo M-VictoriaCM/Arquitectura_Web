@@ -1,12 +1,13 @@
 package entity;
+
 import javax.persistence.*;
 import java.util.List;
-
 
 @Entity
 public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idAlumno")
     private int id;
 
     @Column(nullable = false)
