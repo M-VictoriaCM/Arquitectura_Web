@@ -1,7 +1,7 @@
 package entity;
 
 import javax.persistence.*;
-
+import java.sql.Timestamp;
 
 @Entity
 public class Carrera_inscripta {
@@ -15,7 +15,7 @@ public class Carrera_inscripta {
 
     @Column(nullable = false)
     private boolean graduado;
-
+    private Timestamp anio_graduacion;
     @ManyToOne
     @JoinColumn(name = "Carrera_idCarrera")
     private Carrera carrera;
@@ -35,6 +35,15 @@ public class Carrera_inscripta {
         this.graduado = graduado;
         this.carrera = carrera;
         this.alumno = alumno;
+        this.anio_graduacion=null;
+    }
+
+    public Timestamp getAnio_graduacion() {
+        return anio_graduacion;
+    }
+
+    public void setAnio_graduacion(Timestamp anio_graduacion) {
+        this.anio_graduacion = anio_graduacion;
     }
 
     public int getId() {
