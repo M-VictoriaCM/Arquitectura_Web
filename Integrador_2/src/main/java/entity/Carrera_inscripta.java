@@ -7,11 +7,7 @@ import javax.persistence.*;
 public class Carrera_inscripta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-    @Column(name = "idCarreraInscripta")
-=======
     @Column(name="idCarreraInscripta")
->>>>>>> 8f8589fc80c8c448015d5eb2258d1bf7c34a5e93
     private int id;
 
     @Column(nullable = false)
