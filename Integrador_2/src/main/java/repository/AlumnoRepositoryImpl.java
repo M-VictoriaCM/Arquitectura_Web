@@ -42,7 +42,18 @@ public class AlumnoRepositoryImpl implements AlumnoRepository {
 
     @Override
     public List<Alumno> findAll() {
-        return RepositoryFactory.getEntity_manager().createQuery("SELECT a FROM Alumno a", Alumno.class)
+        return RepositoryFactory.getEntity_manager()
+                .createQuery("SELECT a FROM Alumno a", Alumno.class)
                 .getResultList();
     }
+    //e) recuperar todos los estudiantes, en base a su género
+    @Override
+    public List<Alumno> findAllByGender(String genero) {
+        return RepositoryFactory.getEntity_manager()
+                .createQuery("SELECT a FROM Alumno a WHERE a.genero = :genero", Alumno.class)
+                .setParameter("genero", genero)
+                .getResultList();
+    }
+
+
 }
