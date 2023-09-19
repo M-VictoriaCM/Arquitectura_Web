@@ -7,5 +7,5 @@ public interface BaseRepository<T, ID> {
     void delete(T entity);
     T findById(ID id);
     List<T> findAll();
-
+    void insert(T entity);
 }

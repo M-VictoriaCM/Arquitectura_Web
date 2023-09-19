@@ -28,9 +28,8 @@ public class Carrera_inscripta {
         super();
     }
 
-    public Carrera_inscripta(int id, int antiguedad, boolean graduado, Carrera carrera, Alumno alumno) {
+    public Carrera_inscripta(int antiguedad, boolean graduado, Carrera carrera, Alumno alumno) {
         super();
-        this.id =id;
         this.antiguedad = antiguedad;
         this.graduado = graduado;
         this.carrera = carrera;
@@ -77,10 +76,10 @@ public class Carrera_inscripta {
     @Override
     public String toString() {
         return "Carrera_inscripta{" +
-                "antiguedad=" + antiguedad +
+                "id=" + id +
+                ", antiguedad=" + antiguedad +
                 ", graduado=" + graduado +
-                ", carrera=" + carrera +
-                ", alumno=" + alumno +
+                ", anio_graduacion=" + anio_graduacion +
                 '}';
     }
 }

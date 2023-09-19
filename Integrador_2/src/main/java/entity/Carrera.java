@@ -20,9 +20,8 @@ public class Carrera {
         super();
     }
 
-    public Carrera(int id, String nombre, List<Carrera_inscripta> carrera_inscripta) {
+    public Carrera(String nombre, List<Carrera_inscripta> carrera_inscripta) {
         super();
-        this.id = id;
         this.nombre = nombre;
         this.carrera_inscripta = carrera_inscripta;
     }
@@ -48,7 +47,6 @@ public class Carrera {
         return "Carrera{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", carrera_inscripta=" + carrera_inscripta +
                 '}';
     }
 }
