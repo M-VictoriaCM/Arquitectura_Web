@@ -1,6 +1,7 @@
 package repository;
 
 import entity.Alumno;
+import entity.Carrera;
 import entity.Carrera_inscripta;
 
 import java.util.List;
@@ -35,5 +36,17 @@ public class CarreraInscriptaRepositoryImpl implements CarreraInscriptaRepositor
     public List<Carrera_inscripta> findAll() {
         return RepositoryFactory.getEntity_manager().createQuery("SELECT c FROM Carrera_inscripta c", Carrera_inscripta.class)
                 .getResultList();
+    }
+
+    @Override
+    public void insert(Carrera_inscripta carrera_inscripta) {
+        RepositoryFactory.getEntity_manager().getTransaction().begin();
+        RepositoryFactory.getEntity_manager().createNativeQuery("INSERT INTO carrera_inscripta (antiguedad, graduado, Carrera_idCarrera, Alumno_idAlumno) VALUES (?,?,?,?)")
+        .setParameter(1,carrera_inscripta.getAntiguedad())
+        .setParameter(2,carrera_inscripta.isGraduado())
+        .setParameter(3,carrera_inscripta.getCarrera())
+        .setParameter(4,carrera_inscripta.getAlumno())
+        .executeUpdate();
+        RepositoryFactory.getEntity_manager().getTransaction().commit();
     }
 }

@@ -39,9 +39,8 @@ public class Alumno {
         super();
     }
 
-    public Alumno(int id, String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un, List<Carrera_inscripta> carreras_inscriptas) {
+    public Alumno(String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un, List<Carrera_inscripta> carreras_inscriptas) {
         super();
-        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -127,7 +126,6 @@ public class Alumno {
                 ", dni=" + dni +
                 ", residencia='" + residencia + '\'' +
                 ", num_libreta_un=" + num_libreta_un +
-                ", carreras_inscriptas=" + carreras_inscriptas +
                 '}';
     }
 }

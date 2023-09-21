@@ -46,4 +46,13 @@ public class CarreraRepositoryImpl implements CarreraRepository {
                 .getResultList();
     }
 
+    @Override
+    public void insert(Carrera carrera) {
+        RepositoryFactory.getEntity_manager().getTransaction().begin();
+        RepositoryFactory.getEntity_manager().createNativeQuery("INSERT INTO carrera (nombre) VALUES (?)")
+                .setParameter(1, carrera.getNombre())
+                .executeUpdate();
+        RepositoryFactory.getEntity_manager().getTransaction().commit();
+    }
+
 }
