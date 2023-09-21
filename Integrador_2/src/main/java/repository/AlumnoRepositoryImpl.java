@@ -5,6 +5,7 @@ import entity.Alumno;
 
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import java.util.Collections;
 import java.util.List;
 
 public class AlumnoRepositoryImpl implements AlumnoRepository {
@@ -78,10 +79,15 @@ public class AlumnoRepositoryImpl implements AlumnoRepository {
     }
     //e) recuperar todos los estudiantes, en base a su género
     @Override
-    public List<Alumno> findAllByGender(String genero) {
-        return RepositoryFactory.getEntity_manager()
-                .createQuery("SELECT a FROM Alumno a WHERE a.genero = :genero", Alumno.class)
-                .setParameter("genero", genero)
-                .getResultList();
+    public List<Alumno> findAllByGender(Character genero) {
+        try{
+            TypedQuery<Alumno>query = RepositoryFactory.getEntity_manager()
+                    .createQuery("SELECT a FROM Alumno a WHERE a.genero = :genero", Alumno.class)
+                    .setParameter("genero", genero);
+            return query.getResultList();
+
+        }catch(NoResultException e){
+            return Collections.emptyList();
+        }
     }
 }

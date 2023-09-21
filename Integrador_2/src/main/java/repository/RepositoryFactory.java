@@ -36,15 +36,18 @@ import javax.persistence.Persistence;
             RepositoryFactory.getEntity_manager().close();
             RepositoryFactory.getEntity_manager_factory().close();
         }
-    /*
+
         public static AlumnoRepositoryImpl get_repositorio_alumno() {
-            return AlumnoRepositoryImpl.get_instance();
+            return AlumnoRepositoryImpl.getInstance();
         }
 
         public static CarreraRepositoryImpl get_repositorio_carrera() {
-            return CarreraRepositoryImpl.get_instance();
+            return CarreraRepositoryImpl.getInstance();
         }
-    */
+        public static CarreraInscriptaRepositoryImpl get_repositorio_carreraInscripta(){
+            return CarreraInscriptaRepositoryImpl.getInstance();
+        }
+
 
 
     }
