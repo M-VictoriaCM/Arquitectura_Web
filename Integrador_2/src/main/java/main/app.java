@@ -52,14 +52,32 @@ public class app {
        }*/
 
        //f) recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos.
-        List<Object[]>resultados= carreraService.obtenerCantidadInscriptoPorCarrera();
+        /*List<Object[]>resultados= carreraService.obtenerCantidadInscriptoPorCarrera();
+        System.out.println("Carreras con estudiantes inscriptos ordenados por cantidad de inscriptos");
         for(Object[] resultado : resultados){
             String nombreCarrera = (String) resultado[0];
             Long cantidadInscriptos = (Long) resultado[1];
-            System.out.println("Carrera "+ nombreCarrera + "Inscriptos "+cantidadInscriptos);
+            System.out.println("Carrera: "+ nombreCarrera);
+            System.out.println("Inscriptos: "+cantidadInscriptos);
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        }*/
+        //g) recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.
+        List<Object[]>resultadoBusquedad = carreraService.obtenerEstudiantePorCarreraYCiudad("Abogacia", "Tres Arroyos");
+        System.out.println("Listado de estudiantes filtrado por carrera y residencia");
+        for(Object[] datoEncontrado : resultadoBusquedad){
+            String nombre = (String) datoEncontrado[0];
+            String apellido = (String) datoEncontrado[1];
+            String carrera = (String) datoEncontrado[2];
+            String ciudad = (String) datoEncontrado[3];
+            System.out.println("Nombre: "+nombre);
+            System.out.println("Apellido: "+apellido);
+            System.out.println("Carrera: "+carrera);
+            System.out.println("Ciudad: "+ciudad);
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
 
 
     }
 }
+
 
