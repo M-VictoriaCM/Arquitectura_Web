@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -39,7 +40,7 @@ public class Alumno {
         super();
     }
 
-    public Alumno(String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un, List<Carrera_inscripta> carreras_inscriptas) {
+    public Alumno(String nombre, String apellido, int edad, char genero, int dni, String residencia, int num_libreta_un) {
         super();
         this.nombre = nombre;
         this.apellido = apellido;
@@ -48,13 +49,18 @@ public class Alumno {
         this.dni = dni;
         this.residencia = residencia;
         this.num_libreta_un = num_libreta_un;
-        this.carreras_inscriptas = carreras_inscriptas;
+        this.carreras_inscriptas = new ArrayList<>();
     }
 
     public int getId() {
         return id;
     }
 
+    public void addCarreraAlumno(Carrera_inscripta c){
+        if (!carreras_inscriptas.contains(c)){
+            carreras_inscriptas.add(c);
+        }
+    }
     public List<Carrera_inscripta> getCarreras_inscriptas() {
         return carreras_inscriptas;
     }

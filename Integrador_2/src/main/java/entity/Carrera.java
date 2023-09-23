@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,12 +21,17 @@ public class Carrera {
         super();
     }
 
-    public Carrera(String nombre, List<Carrera_inscripta> carrera_inscripta) {
+    public Carrera(String nombre) {
         super();
         this.nombre = nombre;
-        this.carrera_inscripta = carrera_inscripta;
+        this.carrera_inscripta = new ArrayList<>();
     }
 
+    public void addCarrera(Carrera_inscripta c){
+        if (!carrera_inscripta.contains(c)){
+            carrera_inscripta.add(c);
+        }
+    }
     public int getId() {
         return id;
     }
