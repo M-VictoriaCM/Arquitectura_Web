@@ -3,7 +3,10 @@ package repository;
 
 import entity.Alumno;
 
-public interface AlumnoRepository extends BaseRepository<Alumno, Integer> {
+import java.util.List;
 
-    Alumno findByLibretaUniversitaria(int numeroLibreta);
+public interface AlumnoRepository extends BaseRepository<Alumno, Integer> {
+        Alumno findByLibretaUniversitaria(int numeroLibreta);
+        //e) recuperar todos los estudiantes, en base a su género
+    List<Alumno> findAllByGender(Character genero);
 }

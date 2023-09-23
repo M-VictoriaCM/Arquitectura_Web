@@ -4,9 +4,20 @@ import entity.Alumno;
 import entity.Carrera;
 import entity.Carrera_inscripta;
 
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class CarreraInscriptaRepositoryImpl implements CarreraInscriptaRepository{
+    public static CarreraInscriptaRepositoryImpl instance = new  CarreraInscriptaRepositoryImpl();
+
+    public CarreraInscriptaRepositoryImpl() {
+    }
+    public static  CarreraInscriptaRepositoryImpl getInstance(){
+        return instance;
+    }
+
     @Override
     public Carrera_inscripta save(Carrera_inscripta carrera_inscripta) {
         RepositoryFactory.getEntity_manager().getTransaction().begin();
@@ -49,4 +60,5 @@ public class CarreraInscriptaRepositoryImpl implements CarreraInscriptaRepositor
         .executeUpdate();
         RepositoryFactory.getEntity_manager().getTransaction().commit();
     }
+
 }
