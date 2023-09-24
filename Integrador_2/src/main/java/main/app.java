@@ -22,11 +22,11 @@ public class app {
 
         /** Busco una carrera por la id **/
         Carrera carreraId1;
-        carreraId1= appImpl.buscarCarreraPorID(6);
+        carreraId1= appImpl.buscarCarreraPorID(1);
 
         /** Busco el alumno **/
         Alumno alumnoId1;
-        alumnoId1 = appImpl.buscarAlumnoPorID(11);
+        alumnoId1 = appImpl.buscarAlumnoPorID(1);
 
         /** Inscribo al alumno buscado por ID a la carrera buscada por ID **/
         Carrera_inscripta ci = new Carrera_inscripta(0,false,carreraId1,alumnoId1);
