@@ -38,7 +38,6 @@ public class app {
         /** Recupero todos los estudiantes, en base a su género **/
         appImpl.buscarAlumnoPorGenero('m');
 
-        CarreraService carreraService = new CarreraService(RepositoryFactory.getEntity_manager());
        /** Recupero las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos **/
        appImpl.carrerasOrdenadasPorCantInscriptos();
 
