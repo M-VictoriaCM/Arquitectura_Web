@@ -63,7 +63,7 @@ public class CarreraService {
                     "SELECT DISTINCT c2.nombre " +
                     "FROM Carrera_inscripta ci2 JOIN ci2.carrera c2) "+
                 "GROUP BY c.nombre, ci.anio_graduacion " +
-                "ORDER BY ci.anio_de_inscripcion ASC, c.nombre ASC", ReporteCarreraDTO.class);
+                "ORDER BY c.nombre  ASC,ci.anio_de_inscripcion ASC", ReporteCarreraDTO.class);
 
         List<ReporteCarreraDTO>reporte = query.getResultList();
         return reporte;
