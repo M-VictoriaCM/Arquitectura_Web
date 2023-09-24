@@ -73,7 +73,6 @@ public class AlumnoRepositoryImpl implements AlumnoRepository {
 
             return query.getSingleResult();
         } catch (NoResultException e) {
-            // Manejar la excepción o devolver un valor por defecto, por ejemplo, null
             return null;
         }
     }

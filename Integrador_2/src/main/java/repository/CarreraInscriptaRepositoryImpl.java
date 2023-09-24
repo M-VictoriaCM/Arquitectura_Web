@@ -52,11 +52,12 @@ public class CarreraInscriptaRepositoryImpl implements CarreraInscriptaRepositor
     @Override
     public void insert(Carrera_inscripta carrera_inscripta) {
         RepositoryFactory.getEntity_manager().getTransaction().begin();
-        RepositoryFactory.getEntity_manager().createNativeQuery("INSERT INTO carrera_inscripta (antiguedad, graduado, Carrera_idCarrera, Alumno_idAlumno) VALUES (?,?,?,?)")
-        .setParameter(1,carrera_inscripta.getAntiguedad())
-        .setParameter(2,carrera_inscripta.isGraduado())
-        .setParameter(3,carrera_inscripta.getCarrera())
+        RepositoryFactory.getEntity_manager().createNativeQuery("INSERT INTO carrera_inscripta (anio_de_inscripcion, antiguedad, graduado, Alumno_idAlumno, Carrera_idCarrera) VALUES (?,?,?,?,?)")
+        .setParameter(1,carrera_inscripta.getAnio_de_inscripcion())
+        .setParameter(2,carrera_inscripta.getAntiguedad())
+        .setParameter(3,carrera_inscripta.isGraduado())
         .setParameter(4,carrera_inscripta.getAlumno())
+        .setParameter(5,carrera_inscripta.getCarrera())
         .executeUpdate();
         RepositoryFactory.getEntity_manager().getTransaction().commit();
     }

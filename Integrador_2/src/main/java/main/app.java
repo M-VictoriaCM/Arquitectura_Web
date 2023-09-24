@@ -1,93 +1,56 @@
 package main;
 
-
-import DTO.AlumnoDTO;
-import DTO.ReporteCarreraDTO;
+import entity.Alumno;
+import entity.Carrera;
+import entity.Carrera_inscripta;
 import repository.*;
 import service.CarreraService;
-
-import java.util.List;
-
 public class app {
     public static void main(String[] args) {
         RepositoryFactory.getInstance(RepositoryFactory.MYSQL);
-
+        AppImpl appImpl = new AppImpl();
         /******PRUEBAS**********/
-        /**creo un alumno**/
-        //Alumno a= new Alumno("ff","agga",21,'m',25502633,"Tres Arroyos",2553154,null);
-        /**creo una carrera**/
-        //Carrera carrera = new Carrera("Abogacia",null);
-        //CarreraRepositoryImpl carreraRepository = new CarreraRepositoryImpl();
-        //carreraRepository.insert(carrera);
-        /**busco una carrera por la id**/
-        //Carrera carrera1;
-        //carrera1=carreraRepository.findById(1);
-        /**inserto el alumno nuevo a la db**/
-        //AlumnoRepositoryImpl alumno= new AlumnoRepositoryImpl();
-        // alumno.insert(a);
-        /**busco el alumno**/
-        //Alumno encontrado;
-        //encontrado=alumno.findById(1);
-        /**creo una carrera inscripta para el alumno que busque y con la carrera buscada**/
-        //Carrera_inscripta ca = new Carrera_inscripta(0,false,carrera1,encontrado);
-        //CarreraInscriptaRepositoryImpl carreraInscripta = new CarreraInscriptaRepositoryImpl();
-        /**inserto la carrera inscripta en la db**/
-        //carreraInscripta.insert(ca);
+        /** Creo un alumno **/
+        Alumno a= new Alumno("Franco","Aranzaga",21,'m',25502633,"Tres Arroyos",2553154);
+        /** Inserto el alumno nuevo a la db **/
+        appImpl.insertarAlumno(a);
 
-        //System.out.println(encontrado.toString());
+        /** Creo una carrera**/
+        Carrera carrera = new Carrera("Contador Publico");
+        /** Inserto la carrera nueva a la db **/
+        appImpl.insertarCarrera(carrera);
 
-        //Obtengo el respositorio
-        //AlumnoRepository alumnoRepository = RepositoryFactory.get_repositorio_alumno();
-        //servicios
+        /** Busco una carrera por la id **/
+        Carrera carreraId1;
+        carreraId1= appImpl.buscarCarreraPorID(6);
 
+        /** Busco el alumno **/
+        Alumno alumnoId1;
+        alumnoId1 = appImpl.buscarAlumnoPorID(11);
 
-        //e) recuperar todos los estudiantes, en base a su género
+        /** Inscribo al alumno buscado por ID a la carrera buscada por ID **/
+        Carrera_inscripta ci = new Carrera_inscripta(0,false,carreraId1,alumnoId1);
+        appImpl.insertarCarreraInscripta(ci);
 
-       /*List<Alumno> busquedaPorGenero = alumnoRepository.findAllByGender('M');
-       for(Alumno alu: busquedaPorGenero){
-           System.out.println(alu.getId()+ " | "+alu.getNombre()+" | "+alu.getApellido()+" | "+alu.getGenero());
-       }*/
+        /** Imprimo por consola los datos del alumno buscado **/
+        System.out.println(alumnoId1.toString());
+
+        /** Recupero todos los estudiantes, en base a su género **/
+        appImpl.buscarAlumnoPorGenero('m');
+
         CarreraService carreraService = new CarreraService(RepositoryFactory.getEntity_manager());
-       //f) recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos.
-        /*
-        List<CarreraDTO> carreraDTO = carreraService.obtenerCantidadInscriptoPorCarrera();
-        System.out.println("Carreras con estudiantes inscriptos ordenados por cantidad de inscriptos");
-        for (CarreraDTO carreras : carreraDTO) {
-            System.out.println("Carrera: " + carreras.getNombreCarrera());
-            System.out.println("Inscriptos: " + carreras.getCantidadInscriptos());
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        }*/
+       /** Recupero las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos **/
+       appImpl.carrerasOrdenadasPorCantInscriptos();
 
-        //g) recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.
-       /*List<AlumnoDTO>alumnos = carreraService.obtenerEstudiantePorCarreraYCiudad("Abogacia", "Tres Arroyos");
-        System.out.println("Listado de estudiantes filtrado por carrera y residencia");
-        for(AlumnoDTO alumno : alumnos){
-            System.out.println("Nombre: "+alumno.getNombre());
-            System.out.println("Apellido: "+alumno.getApellido());
-            System.out.println("Carrera: "+alumno.getNombreCarrera());
-            System.out.println("Ciudad: "+alumno.getResidencia());
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        }*/
+        /** Recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia **/
+       appImpl.buscarEstudiantesPorCarreraResidencia("Abogacia", "Tres Arroyos");
 
-        /*Ejercicio 3:
+        /** Ejercicio 3:
         * Generar un reporte de las carreras, que para cada carrera incluya información de los
         * inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y presentar
         * los años de manera cronológica
-        */
-        List<ReporteCarreraDTO>reporte = carreraService.obtenerReporteDeCarreras();
-        for(ReporteCarreraDTO data: reporte){
-            System.out.println("Inscripción: "+data.getAnio_de_inscripcion());
-            System.out.println("N° libreta: "+data.getLibreta());
-            System.out.println("Apellido : "+data.getApellidoAlumno());
-            System.out.println("Nombre : "+data.getNombreAlumno());
-            System.out.println("Carrera: "+data.getNombreCarrera());
-            System.out.println("Año de graduado: "+data.getAnioGraduado());
-            System.out.println("Inscripto: "+data.getInscripto());
-            System.out.println("Egresado: "+data.getEgresado());
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        }
-
-
+        **/
+        appImpl.reporte();
 
     }
 }
