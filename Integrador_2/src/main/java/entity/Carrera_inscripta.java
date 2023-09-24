@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 public class Carrera_inscripta {
@@ -11,11 +12,17 @@ public class Carrera_inscripta {
     private int id;
 
     @Column(nullable = false)
+    private Timestamp anio_de_inscripcion;
+
+    @Column(nullable = false)
     private int antiguedad;
 
     @Column(nullable = false)
     private boolean graduado;
+
+    @Column
     private Timestamp anio_graduacion;
+
     @ManyToOne
     @JoinColumn(name = "Carrera_idCarrera")
     private Carrera carrera;
@@ -30,11 +37,16 @@ public class Carrera_inscripta {
 
     public Carrera_inscripta(int antiguedad, boolean graduado, Carrera carrera, Alumno alumno) {
         super();
+        this.anio_de_inscripcion = new Timestamp(System.currentTimeMillis());
         this.antiguedad = antiguedad;
         this.graduado = graduado;
         this.carrera = carrera;
         this.alumno = alumno;
         this.anio_graduacion=null;
+    }
+
+    public Timestamp getAnio_de_inscripcion() {
+        return anio_de_inscripcion;
     }
 
     public Timestamp getAnio_graduacion() {
