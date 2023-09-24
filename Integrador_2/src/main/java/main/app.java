@@ -17,7 +17,7 @@ public class app {
 
         /******PRUEBAS**********/
         /**creo un alumno**/
-       Alumno a= new Alumno("ff","agga",21,'m',25502633,"Tres Arroyos",2553154,null);
+       Alumno a= new Alumno("ff","agga",21,'m',25502633,"Tres Arroyos",2553154);
         /**creo una carrera**/
         Carrera carrera = new Carrera("Veterinaria");
         CarreraRepositoryImpl carreraRepository = new CarreraRepositoryImpl();
