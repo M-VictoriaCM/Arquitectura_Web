@@ -10,7 +10,7 @@ import Main.Repository.AlumnoRepository;
 
 
 @RestController
-@RequestMapping("/alumno")
+@RequestMapping("/integrador_2")
 
  
 public class AlumnoController {
@@ -18,13 +18,13 @@ public class AlumnoController {
 	private AlumnoRepository alumnoRepository; 
 	
 	//recupero un alumno por su numero de libreta
-    @GetMapping("/numero-libreta/{num}")
-    public Alumno findByLibretaUniversitari(int num) {
-    	return alumnoRepository.findByLibretaUniversitaria(num);
+    @GetMapping("/libreta/{num_libreta_un}")
+    public Alumno findByLibretaUniversitari(@PathVariable int num_libreta_un) {
+    	return alumnoRepository.findByLibretaUniversitaria(num_libreta_un);
     }
     
     //recupero todos los alumnos de un determinado genero
-    @GetMapping("/Genero/{genero}")
+    @GetMapping("/genero/{genero}")
     public List<Alumno> findAllByGender(@PathVariable char genero){
     	return alumnoRepository.findAllByGender(genero);
     }
