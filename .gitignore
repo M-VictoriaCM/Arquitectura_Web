@@ -8,6 +8,7 @@ out
 .project
 .settings/
 Integrador_2/pom.xml
+Integrador_3/pom.xml
 # Archivos y directorios generados por Maven
 target/
 /bin/

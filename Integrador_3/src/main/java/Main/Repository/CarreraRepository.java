@@ -1,8 +1,8 @@
-package Repository;
+package Main.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import Model.Carrera;
+import Main.Model.Carrera;
 
 public interface CarreraRepository extends JpaRepository<Carrera, Integer>{
 
