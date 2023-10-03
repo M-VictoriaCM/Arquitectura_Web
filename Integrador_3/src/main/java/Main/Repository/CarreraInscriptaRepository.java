@@ -18,9 +18,9 @@ public interface CarreraInscriptaRepository extends JpaRepository<Carrera_inscri
 	           "FROM Carrera_inscripta ci " +
 	           "JOIN ci.alumno a " + 
 	           "JOIN ci.carrera c " + 
-	           "WHERE c.nombre = :nombreCarrera "  +
-	           "AND a.residencia = :ciudadResidencia")
-	    List<AlumnoDTO> obtenerEstudiantePorCarreraYCiudad(String nombreCarrera, String ciudadResidencia);
+	           "WHERE c.nombre = :nombre "  +
+	           "AND a.residencia = :ciudad")
+	    List<AlumnoDTO> obtenerEstudiantePorCarreraYCiudad(String nombre, String ciudad);
 	
 	/*Ejercicio 3:
 	    * Generar un reporte de las carreras, que para cada carrera incluya información de los

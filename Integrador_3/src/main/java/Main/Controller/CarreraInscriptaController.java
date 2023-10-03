@@ -1,5 +1,7 @@
 package Main.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Main.DTO.AlumnoDTO;
+import Main.DTO.ReporteCarreraDTO;
 import Main.Model.Carrera_inscripta;
 import Main.Repository.CarreraInscriptaRepository;
 
 @RestController
-@RequestMapping("/integrador_2")
+@RequestMapping("/integrador")
 public class CarreraInscriptaController {
 	@Autowired 
 	private CarreraInscriptaRepository carreraInscriptaRepository;
@@ -35,9 +39,17 @@ public class CarreraInscriptaController {
 	}
 	
 	//crear Carrera_inscripta
-	@PostMapping
+	@PostMapping("/inscribirNuevo")
 	public Carrera_inscripta crearCarreraInscripta(@RequestBody Carrera_inscripta carrera) {
 		return carreraInscriptaRepository.save(carrera);
 	}
 	
+	@GetMapping("/estudiantePorCarreraCiudad/{nombre}/{ciudad}")
+	public List<AlumnoDTO> obtenerEstudiantePorCarreraYCiudad(@PathVariable String nombre,@PathVariable String ciudad){
+		return carreraInscriptaRepository.obtenerEstudiantePorCarreraYCiudad(nombre, ciudad);
+	}
+	@GetMapping("/reporte")
+	public List<ReporteCarreraDTO>obtenerReporteDeCarreras(){
+		return carreraInscriptaRepository.obtenerReporteDeCarreras();
+	}
 }

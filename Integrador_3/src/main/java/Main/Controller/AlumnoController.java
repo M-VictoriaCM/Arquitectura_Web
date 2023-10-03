@@ -10,7 +10,7 @@ import Main.Repository.AlumnoRepository;
 
 
 @RestController
-@RequestMapping("/integrador_2")
+@RequestMapping("/integrador")
 
  
 public class AlumnoController {
@@ -36,9 +36,10 @@ public class AlumnoController {
     }
     
     //crear alumno
- 	@PostMapping
+ 	@PostMapping("/crearAlumnoNuevo")
  	public Alumno crearAlumno(@RequestBody Alumno alumno) {
  		return alumnoRepository.save(alumno);
  	}
+
 	
 }

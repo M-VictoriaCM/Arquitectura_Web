@@ -18,5 +18,7 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer> {
 	//recupero todos los alumnos de un determinado genero
 	@Query("SELECT a FROM Alumno a where a.genero = :genero")
 	public List<Alumno> findAllByGender (char genero);
+
+	
 	
 }
