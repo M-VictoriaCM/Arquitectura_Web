@@ -10,7 +10,7 @@ import Main.Repository.AlumnoRepository;
 
 
 @RestController
-@RequestMapping("/integrador")
+@RequestMapping("/integrador_2")
 
  
 public class AlumnoController {

@@ -50,7 +50,7 @@ public class Alumno {
         this.dni = dni;
         this.residencia = residencia;
         this.num_libreta_un = num_libreta_un;
-        this.carreras_inscriptas = new ArrayList<>();
+       this.carreras_inscriptas = new ArrayList<>();
     }
 
     public int getId() {
@@ -62,9 +62,9 @@ public class Alumno {
             carreras_inscriptas.add(c);
         }
     }
-    public List<Carrera_inscripta> getCarreras_inscriptas() {
-        return carreras_inscriptas;
-    }
+//    public List<Carrera_inscripta> getCarreras_inscriptas() {
+//        return carreras_inscriptas;
+//    }
 
     public String getNombre() {
         return nombre;

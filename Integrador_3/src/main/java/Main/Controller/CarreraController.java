@@ -18,7 +18,7 @@ import Main.Repository.CarreraRepository;
 import Main.Service.CarreraService;
 
 @RestController
-@RequestMapping("/integrador")
+@RequestMapping("/integrador_2")
 public class CarreraController {
 	@Autowired
 	private CarreraRepository carreraRepository;
@@ -37,7 +37,7 @@ public class CarreraController {
 		return carreraRepository.findAll();
 	}
 	//Mostrar Carreras por id
-	@GetMapping("/idCarrera/{id}")
+	@GetMapping("/carreras/id/{id}")
 	public Carrera encontrarPorId(@PathVariable int id) {
 		return carreraRepository.findById(id).orElse(null);
 	}

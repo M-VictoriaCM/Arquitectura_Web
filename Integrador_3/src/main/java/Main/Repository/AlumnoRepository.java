@@ -20,5 +20,4 @@ public interface AlumnoRepository extends JpaRepository<Alumno, Integer> {
 	public List<Alumno> findAllByGender (char genero);
 
 	
-	
 }

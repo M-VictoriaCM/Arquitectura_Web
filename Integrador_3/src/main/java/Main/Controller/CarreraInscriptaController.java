@@ -17,23 +17,23 @@ import Main.Model.Carrera_inscripta;
 import Main.Repository.CarreraInscriptaRepository;
 
 @RestController
-@RequestMapping("/integrador")
+@RequestMapping("/integrador_2")
 public class CarreraInscriptaController {
 	@Autowired 
 	private CarreraInscriptaRepository carreraInscriptaRepository;
 	
 	//Recupero todas las carreras con alumnos inscriptos
-	@GetMapping("/carrera_inscripta")
+	@GetMapping("/carrerasInscriptas")
 	public Iterable<Carrera_inscripta>getAllCarreraInscripta(){
 		return carreraInscriptaRepository.findAll();
 	}
 	//Mostrar carrerasinscriptas por ID
-	@GetMapping("/idCarrera_inscripta/{idCarrera_inscripta}")
-	public Carrera_inscripta encontrarPoId(@PathVariable int id) {
+	@GetMapping("/carreraInscripta/id/{id}")
+	public Carrera_inscripta encontrarPorId(@PathVariable int id) {
 		return carreraInscriptaRepository.findById(id).orElse(null);
 	}
 	//Eliminar una carrera por ID
-	@DeleteMapping("/{idCarreraInscripta}")
+	@DeleteMapping("/eliminarInscripta/{idCarreraInscripta}")
 	public void elimnarCarreraInscripta(@PathVariable int id) {
 		carreraInscriptaRepository.deleteById(id);
 	}
