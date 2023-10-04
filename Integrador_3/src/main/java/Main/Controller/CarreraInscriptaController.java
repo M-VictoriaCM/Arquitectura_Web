@@ -33,7 +33,7 @@ public class CarreraInscriptaController {
 		return carreraInscriptaRepository.findById(id).orElse(null);
 	}
 	//Eliminar una carrera por ID
-	@DeleteMapping("/eliminarInscripta/{idCarreraInscripta}")
+	@DeleteMapping("/eliminarInscripta/{id}")
 	public void elimnarCarreraInscripta(@PathVariable int id) {
 		carreraInscriptaRepository.deleteById(id);
 	}

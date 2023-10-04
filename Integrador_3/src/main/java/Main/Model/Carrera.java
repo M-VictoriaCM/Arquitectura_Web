@@ -23,7 +23,7 @@ public class Carrera {
 
     public Carrera(String nombre) {
         super();
-      this.nombre = nombre;
+        this.nombre = nombre;
         this.carrera_inscripta = new ArrayList<>();
     }
 
@@ -44,9 +44,6 @@ public class Carrera {
         this.nombre = nombre;
     }
 
-//    public List<Carrera_inscripta> getCarrera_inscripta() {
-//        return carrera_inscripta;
-//    }
 
     @Override
     public String toString() {

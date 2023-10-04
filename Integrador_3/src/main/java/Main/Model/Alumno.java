@@ -62,9 +62,6 @@ public class Alumno {
             carreras_inscriptas.add(c);
         }
     }
-//    public List<Carrera_inscripta> getCarreras_inscriptas() {
-//        return carreras_inscriptas;
-//    }
 
     public String getNombre() {
         return nombre;

@@ -47,7 +47,7 @@ public class CarreraController {
 		return carreraRepository.save(carrera);
 	}
 	//Elimina una Carrera por ID
-	@DeleteMapping("/eliminar/{idCarrera}")
+	@DeleteMapping("/eliminarCarrera/{id}")
 	public void eliminarCarrera(@PathVariable int id) {
 		carreraRepository.deleteById(id);
 	}

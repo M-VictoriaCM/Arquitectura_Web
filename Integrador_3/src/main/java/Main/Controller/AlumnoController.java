@@ -29,11 +29,16 @@ public class AlumnoController {
     	return alumnoRepository.findAllByGender(genero);
     }
     
-    //recupero todos los alumnos
+    //recupero todos los alumnos 
     @GetMapping("/alumnos")
-    public Iterable<Alumno> getAlumnos(){
-    	return alumnoRepository.findAll();
+    public List<Alumno> getAlumnos(){
+    	return alumnoRepository.findAllOrdenadoApellido();
     }
+  //Eliminar una carrera por ID
+  	@DeleteMapping("/eliminarAlumno/{id}")
+  	public void elimnarCarreraInscripta(@PathVariable int id) {
+  		alumnoRepository.deleteById(id);
+  	}
     
     //crear alumno
  	@PostMapping("/crearAlumnoNuevo")
